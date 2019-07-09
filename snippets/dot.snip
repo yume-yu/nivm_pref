@@ -20,10 +20,21 @@ options     head
   graph [
     ${0}
   ];
+
 snippet     rankdir
 abbr        rank direction of graph
 options     head
   rankdir = ${1:LRorTB}
+
+snippet     font
+abbr        font setting
+options     head
+  fontname = "${1:fontname}"${0}
+
+snippet     font-cica
+abbr        font setting
+options     head
+  fontname = "Cica"${0}
 
 snippet     node-box
 abbr        box node
