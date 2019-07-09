@@ -1,0 +1,96 @@
+
+[[plugins]]
+repo = 'w0rp/ale'
+on_ft = ['python']
+hook_source = '''
+  let g:ale_sign_column_always = 1
+   " 表示に関する設定
+  let g:ale_sign_error = ''
+  let g:ale_sign_warning = ''
+  let g:airline#extensions#ale#open_lnum_symbol = '('
+  let g:airline#extensions#ale#close_lnum_symbol = ')'
+  let g:ale_echo_msg_format = '[%linter%]%code: %%s'
+  let g:ale_linters = {'python': ['flake8'],}
+  let g:ale_fixers = {
+    \ 'python': ['autopep8', 'black', 'isort'],
+    \ }
+  " 各ツールの実行オプションを変更してPythonパスを固定
+  let g:ale_python_flake8_executable = g:python3_host_prog
+  let g:ale_python_flake8_options = '-m flake8'
+  let g:ale_python_autopep8_executable = g:python3_host_prog
+  let g:ale_python_autopep8_options = '-m autopep8'
+  let g:ale_python_isort_executable = g:python3_host_prog
+  let g:ale_python_isort_options = '-m isort'
+  let g:ale_python_black_executable = g:python3_host_prog
+  let g:ale_python_black_options = '-m black'
+  " ファイル保存時に自動的にFixするオプションもあるのでお好みで
+  let g:ale_fix_on_save = 1
+'''
+hook_past_source = '''
+  " ついでにFixを実行するマッピングしとく
+  nnoremap <<silent> Leader><Leader> :ALEFix
+'''
+
+[[plugins]]
+repo =  'Shougo/deol.nvim'
+hook_add = '''
+  tnoremap <ESC>   <C-\><C-n>
+'''
+
+[[plugins]]
+repo = 'previm/previm'
+on_ft = ['markdown']
+hook_source = '''
+	"Previmが開くブラウザ
+	let g:previm_open_cmd = 'open -a Safari'
+	"Previm更新頻度
+	let g:previm_enable_realtime = 1
+	"Previmが使うcssの設定
+	let g:previm_disable_default_css = 1
+	let g:previm_custom_css_path = '~/.config/nvim/previm/github.css'
+  g:previm_show_header = 0
+'''
+
+[[plugins]]
+repo = 'lervag/vimtex'
+on_ft = ['tex','plaintex']
+hook_source = '''
+	" vimtexの設定
+  let g:vimtex_quickfix_open_on_warning = 0
+  let g:vimtex_compiler_latexmk = {
+				\ 'background': 1,
+				\ 'build_dir': '',
+				\ 'continuous': 1,
+				\ 'options': [
+				\    '-pdfdvi',
+				\    '-verbose',
+				\    '-file-line-error',
+				\    '-synctex=1',
+				\    '-interaction=nonstopmode',
+				\],
+				\}
+
+	let g:vimtex_view_general_viewer
+				\ = '/Applications/Skim.app/Contents/SharedSupport/displayline'
+	let g:vimtex_view_general_options = '-r @line @pdf @tex'
+'''
+
+[[plugins]]
+repo = 'deoplete-plugins/deoplete-jedi'
+on_ft = ['python']
+
+[[plugins]]
+repo = 'Vimjas/vim-python-pep8-indent'
+on_ft = ['python']
+
+[[plugins]]
+repo = 'aklt/plantuml-syntax'
+on_ft = ['plantuml','uml']
+hook_source = '''
+" plantumlスクリプトの設定
+let g:plantuml_executable_script="~/.config/nvim/plantuml/plantuml"
+'''
+
+[[plugins]]
+repo = 'wannesm/wmgraphviz.vim'
+on_ft = ['dot']
