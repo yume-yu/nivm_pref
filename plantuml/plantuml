@@ -1,3 +1,0 @@
-#!/bin/bash
-java -jar $HOME/.config/nvim/plantuml/plantuml.jar -tpng $@
-open ${@%%.*}.png
