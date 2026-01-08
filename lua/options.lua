@@ -16,6 +16,7 @@ vim.opt.clipboard="unnamedplus"
 vim.api.nvim_buf_set_var(0, "did_ftplugin", 1)
 vim.opt.cursorline=true
 vim.opt.number=true
+vim.opt.relativenumber=true
 vim.opt.mouse=''
 vim.opt.showmatch=true
 vim.opt.matchtime=1
