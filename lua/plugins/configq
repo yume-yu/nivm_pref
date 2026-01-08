@@ -1,0 +1,40 @@
+-- SKKのモード状態を取得するローカル関数
+local function skk_status()
+  -- インサート/コマンドモード以外、またはSKK未ロード時は非表示
+  if vim.fn.mode() ~= "i" and vim.fn.mode() ~= "c" then return "" end
+  if vim.fn.exists("*skkeleton#mode") ~= 1 then return "" end
+  
+  local mode = vim.fn["skkeleton#mode"]()
+  local map = {
+    eiji    = "A",
+    hira    = "あ",
+    kata    = "ア",
+    hankata = "ｱ",
+    zenkaku = "Ａ",
+    abbrev  = "abbr",
+  }
+  return map[mode] or ""
+end
+
+-- Lualineの setup() に渡されるテーブルを返す
+return {
+  options = {
+    theme = "auto",
+    globalstatus = true,
+    icons_enabled = true,
+  },
+  sections = {
+    -- lualine_x (右側) をカスタマイズ
+    lualine_x = {
+      -- 1. SKKステータス (追加分)
+      {
+        skk_status,
+        color = { fg = "#ff9e64", gui = "bold" },
+      },
+      -- 2. 以下、デフォルトの項目を明示的に記述して維持する
+      "encoding",
+      "fileformat",
+      "filetype",
+    },
+  },
+}

@@ -1,0 +1,5 @@
+require("options")
+require("keymap")
+require("autocmd")
+require("plugin")
+--require("plugins-theme")
