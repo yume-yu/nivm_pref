@@ -85,12 +85,12 @@ vim.fn["ddu#custom#patch_local"]('file-list', {
   },
   sourceOptions = {
     file_rec ={
-      path = vim.fn.getcwd()
+      path = vim.fn.expand('')
     }
   },
   uiParams = {
     ff = {
-      --split = 'horizontal',
+      split = 'horizontal',
       filterSplitDirection = 'botright',
       splitDirection = 'botright',
       winHeight = 10,
