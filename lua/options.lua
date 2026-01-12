@@ -30,12 +30,15 @@ vim.opt.spell=true
 vim.opt.equalalways=false
 vim.opt.laststatus=3
 
+vim.opt.termguicolors = true
+
 -- 見栄え
 -- 背景色をターミナルに統一
 vim.opt.list=true
 vim.opt.listchars="tab:»-,trail:-,nbsp:%,eol:↲"
 vim.opt.termguicolors=true
 vim.opt.pumblend=10      -- 0 〜 100 が指定できます。ドキュメントによると 5 〜 30 くらいが適当だそうです。
+vim.opt.cmdheight=0    -- noiceを使うためコマンド行は0にする
 -- ポップアップの透明度を設定
 vim.opt.pumblend=30
 

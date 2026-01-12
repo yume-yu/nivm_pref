@@ -1,7 +1,5 @@
 return  {
   {"nvim-tree/nvim-web-devicons"},
-  {'MunifTanjim/nui.nvim'},
-  {'rcarriga/nvim-notify'},
   {
     "echasnovski/mini.icons",
     lazy = true,
@@ -41,27 +39,52 @@ return  {
       require("ibl").setup()
     end
   },
-  'editorconfig/editorconfig-vim'
-},
-{
-  -- 使用していないペインを暗くする
-  "tadaa/vimade",
-  opts = {
-    recipe = {"default", {animate = true}},
-    fadelevel = 0.4,
+  'editorconfig/editorconfig-vim',
+  {
+    -- 使用していないペインを暗くする
+    "tadaa/vimade",
+    opts = {
+      recipe = {"default", {animate = true}},
+      fadelevel = 0.4,
+    },
   },
   {
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = {
-      -- add any options here
+      views = {
+        cmdline_popup = {
+          position = {
+            row = "75%",
+            col = "50%",
+          },
+          size = {
+            width = "60%",
+            height = "auto",
+          },
+        },
+        popupmenu = {
+          relative = "editor",
+          position = {
+            row = "75%", 
+            col = "50%",
+          },
+          size = {
+            width = "60%",
+            height = 10,
+          },
+          border = {
+            style = "rounded",
+            padding = { 0, 1 },
+          },
+          win_options = {
+            winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
+          },
+        },
+      },
     },
     dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify",
     }
   }
