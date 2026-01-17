@@ -31,4 +31,5 @@ return {
   'shougo/ddu-commands.vim',
   'shougo/ddu-source-action',
   'shougo/ddu-source-line',
+  "Shougo/ddu-filter-matcher_ignore_files",
 }

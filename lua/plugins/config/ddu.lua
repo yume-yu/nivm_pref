@@ -11,13 +11,32 @@ vim.fn["ddu#custom#patch_global"]({
   },
   sourceOptions =  {
     _ =  {
-      matchers =  {'matcher_substring'},
+      matchers =  {'matcher_substring', },
     },
-    file_rec =  {path =  vim.fn.expand("~")},
+    file_rec =  {
+      path =  vim.fn.expand("~"), 
+    },
   },
   filterParams =  {
     matcher_substring =  {
       highlightMatched =  'Title',
+    },
+  },
+  filterParams = {
+    matcher_ignore_files = {
+      -- ここに除外したいパターンを列挙する
+      ignoreGlobs = { 
+        ".DS_Store", 
+        "*.jpg", 
+        "*.jpeg", 
+        "*.png", 
+        "+.zip",
+        "*.tar.*",
+        "*.o", 
+        "*.class*",
+      },
+      --ignorePatterns = {'/test_[^/]*.vim$'},
+
     },
   },
   kindOptions =  {
@@ -75,10 +94,15 @@ vim.fn["ddu#custom#patch_local"]('file-list', {
   sources = {
     {
       name = 'file_rec',
+      matchers =  {"matcher_ignore_files", 'matcher_substring', },
       params ={
         ignoredDirectories ={
           '.git',
-          '__pycache__'
+          '__pycache__',
+          ".gradle",
+          "gradle",
+          ".idea",
+          "build/tmp"
         }
       } 
     }
