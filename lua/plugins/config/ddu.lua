@@ -181,7 +181,7 @@ vim.api.nvim_set_keymap("n", "<Leader>b", "<Cmd>Ddu buffer -name=buffer<CR>", op
 --vim.api.nvim_set_keymap("n", "<Leader>b", "<Cmd>call ddu#start({'name': 'buffer' })<CR>", opts)
 vim.api.nvim_set_keymap("n", "<Leader>l", "<Cmd>call ddu#start({'name': 'line' })<CR>", opts)
 vim.api.nvim_set_keymap("n", "<Leader>L", "<Cmd>call ddu#start({'name': 'line','input': expand('<cword>')})<CR>", opts)
-vim.api.nvim_set_keymap("n", "<Leader>f", "<Cmd>call ddu#start({'name': 'file-list'})<CR>", opts)
+vim.api.nvim_set_keymap("n", "<Leader>ff", "<Cmd>call ddu#start({'name': 'file-list'})<CR>", opts)
 vim.api.nvim_set_keymap("n", "<Leader>g", "<Cmd>call ddu#start({'name': 'grep', 'sources':[ {'name': 'rg', 'params': {'input': expand('<cword>')}} ], })<CR>", opts)
 -- " build-in LSPの設定
 -- " カーソル下の情報表示

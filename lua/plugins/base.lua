@@ -111,5 +111,8 @@ return  {
     'nvim-mini/mini.files', 
     version = '*',
     config = true,
+    keys = {
+      { "<Leader>ft", "<cmd>lua MiniFiles.open()<CR>" },
+    },
   },
 }
