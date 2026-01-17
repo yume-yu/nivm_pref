@@ -176,11 +176,11 @@ return {
     keys = {
       { "<C-space>", "<cmd>lua vim.lsp.completion.get()  <CR>", mode = "i" },
       { "<Leader>d", "<cmd>lua vim.lsp.buf.hover()       <CR>" },
-      { "<Leader>D",        "<cmd>lua vim.lsp.buf.definition()  <CR>" },
-      { '<Leader>a', "<cmd>vim.lsp.buf.code_action, bufopts)<CR>"},
-      { '<Leader>R', "<cmd>vim.lsp.buf.rename, bufopts)<CR>"},
-      { '<leader>g', "<cmd>vim.lsp.buf.references, bufopts)<CR>"},
-      { '<Leader>F', "<cmd>vim.lsp.buf.format, bufopts)<CR>"},
+      { "<Leader>D", "<cmd>lua vim.lsp.buf.definition()  <CR>" },
+      { '<Leader>a', "<cmd>lua vim.lsp.buf.code_action(bufopts)<CR>"},
+      { '<Leader>R', "<cmd>lua vim.lsp.buf.rename(bufopts)<CR>"},
+      { '<leader>g', "<cmd>lua vim.lsp.buf.references(bufopts)<CR>"},
+      { '<Leader>F', "<cmd>lua vim.lsp.buf.format(bufopts)<CR>"},
       --{ "<Leader>D",        "<cmd>lua vim.lsp.buf.declaration() <CR>" },
     },
     --config = function()
